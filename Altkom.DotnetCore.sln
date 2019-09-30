@@ -7,11 +7,20 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Altkom.DotnetCore.Models", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Altkom.DotnetCore.ConsoleClient", "Altkom.DotnetCore.ConsoleClient\Altkom.DotnetCore.ConsoleClient.csproj", "{323E5629-59B6-44DF-AD58-24B472DE8E39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.DotnetCore.IRepositories", "Altkom.DotnetCore.IRepositories\Altkom.DotnetCore.IRepositories.csproj", "{4157D95D-4DBB-429E-970D-FBE9EE49E40F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Altkom.DotnetCore.IRepositories", "Altkom.DotnetCore.IRepositories\Altkom.DotnetCore.IRepositories.csproj", "{4157D95D-4DBB-429E-970D-FBE9EE49E40F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.DotnetCore.FakeRepositories", "Altkom.DotnetCore.FakeRepositories\Altkom.DotnetCore.FakeRepositories.csproj", "{6B9893D7-D0FC-4DCB-8BB1-BE06400A5EC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Altkom.DotnetCore.FakeRepositories", "Altkom.DotnetCore.FakeRepositories\Altkom.DotnetCore.FakeRepositories.csproj", "{6B9893D7-D0FC-4DCB-8BB1-BE06400A5EC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.DotnetCore.Fakers", "Altkom.DotnetCore.Fakers\Altkom.DotnetCore.Fakers.csproj", "{3740F3D0-6713-4042-9E97-82C1FD037F3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Altkom.DotnetCore.Fakers", "Altkom.DotnetCore.Fakers\Altkom.DotnetCore.Fakers.csproj", "{3740F3D0-6713-4042-9E97-82C1FD037F3B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Altkom.DotnetCore.DbRepositories", "Altkom.DotnetCore.DbRepositories\Altkom.DotnetCore.DbRepositories.csproj", "{8D9A7952-5628-4972-A356-608A4FB3254D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Altkom.DotnetCore.WebApi", "Altkom.DotnetCore.WebApi\Altkom.DotnetCore.WebApi.csproj", "{6B344CB1-095A-4586-AD16-97B3A830F625}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3C940F14-5F29-49AE-8737-FD5971574773}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +92,30 @@ Global
 		{3740F3D0-6713-4042-9E97-82C1FD037F3B}.Release|x64.Build.0 = Release|Any CPU
 		{3740F3D0-6713-4042-9E97-82C1FD037F3B}.Release|x86.ActiveCfg = Release|Any CPU
 		{3740F3D0-6713-4042-9E97-82C1FD037F3B}.Release|x86.Build.0 = Release|Any CPU
+		{8D9A7952-5628-4972-A356-608A4FB3254D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D9A7952-5628-4972-A356-608A4FB3254D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D9A7952-5628-4972-A356-608A4FB3254D}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8D9A7952-5628-4972-A356-608A4FB3254D}.Debug|x64.Build.0 = Debug|Any CPU
+		{8D9A7952-5628-4972-A356-608A4FB3254D}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8D9A7952-5628-4972-A356-608A4FB3254D}.Debug|x86.Build.0 = Debug|Any CPU
+		{8D9A7952-5628-4972-A356-608A4FB3254D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D9A7952-5628-4972-A356-608A4FB3254D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D9A7952-5628-4972-A356-608A4FB3254D}.Release|x64.ActiveCfg = Release|Any CPU
+		{8D9A7952-5628-4972-A356-608A4FB3254D}.Release|x64.Build.0 = Release|Any CPU
+		{8D9A7952-5628-4972-A356-608A4FB3254D}.Release|x86.ActiveCfg = Release|Any CPU
+		{8D9A7952-5628-4972-A356-608A4FB3254D}.Release|x86.Build.0 = Release|Any CPU
+		{6B344CB1-095A-4586-AD16-97B3A830F625}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B344CB1-095A-4586-AD16-97B3A830F625}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B344CB1-095A-4586-AD16-97B3A830F625}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6B344CB1-095A-4586-AD16-97B3A830F625}.Debug|x64.Build.0 = Debug|Any CPU
+		{6B344CB1-095A-4586-AD16-97B3A830F625}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6B344CB1-095A-4586-AD16-97B3A830F625}.Debug|x86.Build.0 = Debug|Any CPU
+		{6B344CB1-095A-4586-AD16-97B3A830F625}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B344CB1-095A-4586-AD16-97B3A830F625}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B344CB1-095A-4586-AD16-97B3A830F625}.Release|x64.ActiveCfg = Release|Any CPU
+		{6B344CB1-095A-4586-AD16-97B3A830F625}.Release|x64.Build.0 = Release|Any CPU
+		{6B344CB1-095A-4586-AD16-97B3A830F625}.Release|x86.ActiveCfg = Release|Any CPU
+		{6B344CB1-095A-4586-AD16-97B3A830F625}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
