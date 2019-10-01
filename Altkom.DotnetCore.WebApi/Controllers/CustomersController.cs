@@ -1,6 +1,7 @@
 ﻿using Altkom.DotnetCore.FakeRepositories;
 using Altkom.DotnetCore.IRepositories;
 using Altkom.DotnetCore.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Altkom.DotnetCore.WebApi.Controllers
 {
+    [Authorize(Roles = "Developer, Admin")]
     [Route("api/[controller]")]
    // [Route("api/klienci")]
     [ApiController]
@@ -26,6 +28,16 @@ namespace Altkom.DotnetCore.WebApi.Controllers
         [HttpGet]
         public IActionResult Get()
         {
+            if (this.User.IsInRole("Developer"))
+            {
+
+            }
+
+            if (!this.User.Identity.IsAuthenticated)
+            {
+                return Unauthorized();
+            }
+
             var customers = customerRepository.Get();
 
             return Ok(customers);

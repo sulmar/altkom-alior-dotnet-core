@@ -18,6 +18,8 @@ namespace Altkom.DotnetCore.Fakers
             RuleFor(p => p.LastName, f => f.Person.LastName);
             RuleFor(p => p.IsRemoved, f => f.Random.Bool(0.3f));
             Ignore(p => p.City);
+            RuleFor(p => p.UserName, f => f.Person.UserName);
+            RuleFor(p => p.HashPassword, f => "12345");
         }
     }
 }

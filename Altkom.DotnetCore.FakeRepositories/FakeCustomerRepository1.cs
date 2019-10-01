@@ -3,6 +3,7 @@ using Altkom.DotnetCore.Models;
 using Bogus;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Altkom.DotnetCore.FakeRepositories
 {
@@ -22,6 +23,13 @@ namespace Altkom.DotnetCore.FakeRepositories
         {
             Customer customer = Get(id);
             customer.IsRemoved = true;
+        }
+
+        public bool TryAuthorize(string username, string hashPasword, out Customer customer)
+        {
+            customer = entities.SingleOrDefault(e => e.UserName == username && e.HashPassword == hashPasword);
+
+            return customer != null;
         }
     }
 }
