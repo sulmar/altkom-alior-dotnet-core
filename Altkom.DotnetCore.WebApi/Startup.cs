@@ -33,9 +33,13 @@ namespace Altkom.DotnetCore.WebApi
 
             services.AddScoped<ICustomerRepository, FakeCustomerRepository>();
             // services.AddScoped<ICustomerRepository, DbCustomerRepository>();
-            services.AddScoped<Faker<Customer>, CustomerFaker>();            
+            services.AddScoped<Faker<Customer>, CustomerFaker>();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            // dotnet add package Microsoft.AspNetCore.Mvc.Formatters.Xml
+
+            services.AddMvc()
+                .AddXmlSerializerFormatters()        
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
