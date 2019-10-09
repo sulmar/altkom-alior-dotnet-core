@@ -26,8 +26,7 @@
 - ``` dotnet add package {package-name} ``` - dodanie pakietu nuget do projektu
 - ``` dotnet remove package {package-name} ``` - usunięcie pakietu nuget do projektu
 
-## Opcje
-
+## Konfiguracja
 
 - Utworzenie klasy opcji
 ~~~ csharp
@@ -124,7 +123,7 @@ public class Startup
 | PATCH  | Zmień częściowo       |
 | HEAD   | Czy zasób istnieje    |
 
-### Wyłączenie generowania wartości null w jsonie
+## Opcje serializacji json
 
 Plik Startup.cs
 
@@ -132,44 +131,15 @@ Plik Startup.cs
 
 public void ConfigureServices(IServiceCollection services)
 {
-  services
+  services.AddMvc()
     .AddJsonOptions(options =>
     {
-        options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;            
-    });
+        options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore; // Wyłączenie generowania wartości null w jsonie
+        options.SerializerSettings.Converters.Add(new StringEnumConverter(camelCaseText: true));  // Serializacja enum jako tekst
+        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore; // Zapobieganie cyklicznej serializacji
+
+    })
 }
-~~~
-
-### Serializacja enum jako tekst 
-
-Plik Startup.cs
-
-~~~ csharp
-
-public void ConfigureServices(IServiceCollection services)
-{
-  services
-    .AddJsonOptions(options =>
-     {
-         options.SerializerSettings.Converters.Add(new StringEnumConverter(camelCaseText: true));                       
-     });
-}
-
-~~~
-
-### Zapobieganie cyklicznej serializacji
-
-Plik Startup.cs
-
-~~~ csharp
-public void ConfigureServices(IServiceCollection services)
-{
-  services
-      .AddJsonOptions(options =>
-         {
-             options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
-         });
-   } 
 ~~~
 
 ### Włączenie obsługi XML
@@ -190,6 +160,34 @@ Plik Startup.cs
          .AddXmlSerializerFormatters();
  }
 ~~~
+
+### Przekazywanie formatu poprzez adres URL
+
+
+
+~~~ csharp
+
+// GET api/customers/10
+// GET api/customers/10.json
+// GET api/customers/10.xml
+
+[Route("api/[controller]")]
+public class CustomersController : ControllerBase
+{
+    [FormatFilter]
+    [HttpGet("{id:int}.{format?}")]
+    public IActionResult GetById(int id)
+    {
+        if (!customerRepository.IsExists(id))
+            return NotFound();
+
+        var customer = customerRepository.Get(id);
+
+        return Ok(customer);
+    }
+}
+~~~
+
 
 ## Autentyfikacja
 
@@ -722,15 +720,6 @@ public async Task RemoveFromGroup(string groupName)
 
 ~~~
 
-
-## Optymalizacja
-
-
-
-### Kompresja
-
-
-### Buforowanie
 
 
 ## Testy jednostkowe
