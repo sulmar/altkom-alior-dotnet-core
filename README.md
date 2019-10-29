@@ -145,12 +145,6 @@ public void ConfigureServices(IServiceCollection services)
 
 ### Włączenie obsługi XML
 
-- Instalacja
-~~~ bash
-dotnet add package AddXmlSerializerFormatters
-~~~
-
-
 Plik Startup.cs
 
 ~~~ csharp
